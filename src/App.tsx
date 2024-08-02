@@ -1,8 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const [data, setData] = useState("data");
+
+  useState(() => {
+    setData("data1");
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +24,7 @@ function App() {
         >
           Learn React
         </a>
+        {data === "data" ? <div>data</div> : <div>it is not data</div>}
       </header>
     </div>
   );
