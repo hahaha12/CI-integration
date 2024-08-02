@@ -5,13 +5,15 @@ on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node: [14, 16, 18, 20]
+    name: Node ${{ matrix.node }} sample
     steps:
-        name:
       - uses: actions/checkout@v4
-        name: update node
-      - uses: actions/setup-node@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - run: npm ci 
-      - run: yarn test
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
