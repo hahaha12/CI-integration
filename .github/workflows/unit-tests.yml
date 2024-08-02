@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
-      - run: npm ci
+      - run: yarn ci
       - run: yarn test
