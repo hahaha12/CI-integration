@@ -7,17 +7,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
       - name: Install dependencies
-      - run: yarn ci
+      - run: yarn ci 
 
   unit-test:
     runs-on: ubuntu-latest
-
     needs: build
+
     steps:
-      - uses: actions/checkout@v4
-      - name: run unit tests
-      - run: yarn test
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run unit tests
+        run: yarn test
