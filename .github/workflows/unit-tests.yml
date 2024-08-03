@@ -11,8 +11,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
+        with:
+          node-version: "18"
       - name: Install dependencies
-      - run: yarn ci 
+      - run: yarn ci
 
   unit-test:
     runs-on: ubuntu-latest
