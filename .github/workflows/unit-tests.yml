@@ -16,11 +16,10 @@ jobs:
      
   unit-test:
     runs-on: ubuntu-latest
-   
-    name: run tests
+    needs: build
     steps:
       - uses: actions/checkout@v4
-      - name: run tests 
+      - name: run unit tests 
       - run: yarn test
 
 
