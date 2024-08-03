@@ -3,13 +3,23 @@ name: "Unit tests"
 on: [pull_request]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+   
+    name: build project
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+      - run: yarn ci
+     
+jobs:
   unit-test:
     runs-on: ubuntu-latest
    
     name: run tests
     steps:
       - uses: actions/checkout@v4
-      - name: Setup node
-        uses: actions/setup-node@v4
-      - run: yarn ci
       - run: yarn test
+
+
