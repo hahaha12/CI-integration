@@ -3,7 +3,7 @@ name: "Unit tests"
 on: [pull_request]
 
 jobs:
-  build:
+  unit-test:
     runs-on: ubuntu-latest
    
     name: run tests
