@@ -1,17 +1,26 @@
 name: "Unit tests"
-
 on: [pull_request]
 
 jobs:
-  build:
+  unit-test:
     runs-on: ubuntu-latest
 
+    name: run tests
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
-      - name: Install dependencies
       - run: yarn ci
       - run: yarn test
 
