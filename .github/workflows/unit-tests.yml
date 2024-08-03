@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    name: run tests
+    name: build product
     steps:
       - uses: actions/checkout@v4
       - name: Setup node
