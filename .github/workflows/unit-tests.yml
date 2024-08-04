@@ -1,0 +1,24 @@
+name: "Unit tests"
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: build product
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+      - run: yarn ci
+
+  unit-test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    name: run tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+      - run: yarn test
